@@ -21,7 +21,7 @@ public class VariableController {
 
 	@Autowired
 	VariableService variableService;
-
+	
 	@RequestMapping(value = "/variables/{code}", method = RequestMethod.GET)
 	public @ResponseBody
 	Variable getVariable(@PathVariable String code) {
@@ -33,7 +33,8 @@ public class VariableController {
 	public @ResponseBody
 	List<Variable> getVariables() {
 		List<Variable> result = new ArrayList<Variable>();
-		List<Variable> variables = variableService.getVariables();
+		List<Variable> variables = variableService.readAll();
+//		List<Variable> variables = variableService.getVariables();
 		for (Variable variable : variables) {
 			result.add(new Variable(variable.getId(), variable.getCode(),
 					variable.getName()));
@@ -45,7 +46,8 @@ public class VariableController {
 	@RequestMapping(value = "/variables/create", method = RequestMethod.PUT)
 	public @ResponseBody
 	Variable getVariables(@RequestBody Variable variable) {
-		return variableService.createVariable(variable);
+		return variableService.create(variable);
+//		return variableService.createVariable(variable);
 	}
 
 
