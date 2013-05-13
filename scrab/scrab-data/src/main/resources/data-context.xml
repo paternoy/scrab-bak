@@ -44,5 +44,4 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 	
-	<jpa:repositories base-package="com.coopnex.scrab.data.repository" />
 </beans>

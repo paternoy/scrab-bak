@@ -12,7 +12,7 @@
 		<dependency>
 			<groupId>com.coopnex</groupId>
 			<artifactId>scrab-service</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${parent.version}</version>
 		</dependency>
 		<!-- Jackson JSON Mapper -->
 		<dependency>
@@ -44,39 +44,39 @@
 			<version>2.2.2</version>
 		</dependency>
 	</dependencies>
-	<packaging>war</packaging>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.0</version>
-				<configuration>
-					<url>http://localhost:8080/manager/text</url>
-					<server>localhost</server>
-					<update>true</update>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<configuration>
-					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.9</version>
-				<configuration>
-					<classpathContainers>
-						<classpathContainer>
-							org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.
-							internal.debug.ui.launcher.StandardVMType/JavaSE-1.6
-						</classpathContainer>
-					</classpathContainers>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+	<packaging>jar</packaging>
+<!-- 	<build> -->
+<!-- 		<plugins> -->
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.tomcat.maven</groupId> -->
+<!-- 				<artifactId>tomcat7-maven-plugin</artifactId> -->
+<!-- 				<version>2.0</version> -->
+<!-- 				<configuration> -->
+<!-- 					<url>http://localhost:8080/manager/text</url> -->
+<!-- 					<server>localhost</server> -->
+<!-- 					<update>true</update> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 				<artifactId>maven-war-plugin</artifactId> -->
+<!-- 				<configuration> -->
+<!-- 					<webXml>src/main/webapp/WEB-INF/web.xml</webXml> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 				<artifactId>maven-eclipse-plugin</artifactId> -->
+<!-- 				<version>2.9</version> -->
+<!-- 				<configuration> -->
+<!-- 					<classpathContainers> -->
+<!-- 						<classpathContainer> -->
+<!-- 							org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt. -->
+<!-- 							internal.debug.ui.launcher.StandardVMType/JavaSE-1.6 -->
+<!-- 						</classpathContainer> -->
+<!-- 					</classpathContainers> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
+<!-- 		</plugins> -->
+<!-- 	</build> -->
 </project>
