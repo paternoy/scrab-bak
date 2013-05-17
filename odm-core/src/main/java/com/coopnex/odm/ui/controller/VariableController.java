@@ -1,5 +1,6 @@
 package com.coopnex.odm.ui.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,7 +14,10 @@ import com.coopnex.scrab.rest.controller.CrudController;
 @Controller
 @RequestMapping("/variables*")
 public class VariableController extends CrudController<Variable, Long> {
-
+	
+	@Autowired
+	VariableService variableService;
+	
 	@RequestMapping(value = "", params = { "code" }, method = RequestMethod.GET)
 	public @ResponseBody
 	Variable getVariableByCode(
@@ -24,7 +28,7 @@ public class VariableController extends CrudController<Variable, Long> {
 
 	@Override
 	protected VariableService getService() {
-		return (VariableService) super.getService();
+		return variableService;
 	}
 
 }

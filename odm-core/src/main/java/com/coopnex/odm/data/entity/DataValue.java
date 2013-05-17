@@ -1,5 +1,7 @@
 package com.coopnex.odm.data.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,33 +15,22 @@ import com.coopnex.scrab.data.entity.AbstractEntity;
 
 @Entity
 @Table
-public class Variable extends AbstractEntity<Long> {
+public class DataValue extends AbstractEntity<Long> {
 	@Id
 	@Column
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
 
 	@Column
-	private String name;
+	Float value;
+
+	@ManyToOne
+	@JoinColumn(name = "variableId")
+	Variable variable;
 
 	@Column
-	private String code;
-	
-	@ManyToOne
-	@JoinColumn(name = "unitId")
-	Unit unit;
+	Date dateTime;
 
-	public Variable() {
-		super();
-	}
-
-	public Variable(Long id, String name, String code) {
-		super();
-		this.name = name;
-		this.code = code;
-	}
-
-	@Override
 	public Long getId() {
 		return id;
 	}
@@ -48,19 +39,28 @@ public class Variable extends AbstractEntity<Long> {
 		this.id = id;
 	}
 
-	public String getCode() {
-		return code;
+	public Float getValue() {
+		return value;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setValue(Float value) {
+		this.value = value;
 	}
 
-	public String getName() {
-		return name;
+	public Variable getVariable() {
+		return variable;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setVariable(Variable variable) {
+		this.variable = variable;
 	}
+
+	public Date getDateTime() {
+		return dateTime;
+	}
+
+	public void setDateTime(Date dateTime) {
+		this.dateTime = dateTime;
+	}
+
 }

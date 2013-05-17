@@ -9,37 +9,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.coopnex.scrab.service.CrudService;
+import com.coopnex.scrab.data.entity.AbstractEntity;
+import com.coopnex.scrab.data.repository.AbstractRepository;
 
-
-public abstract class CrudController<T,PK extends Serializable>{
+public abstract class CrudRepositoryRestController<T extends AbstractEntity<PK>,PK extends Serializable> {
 	
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public @ResponseBody
 	T getById(@PathVariable PK id) {
-		return getService().read(id);
+		return getRepository().findOne(id);
 
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
 	public @ResponseBody
 	List<T> getAll() {
-		return getService().readAll();
+		return getRepository().findAll();
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public @ResponseBody
 	T create(@PathVariable long id,@RequestBody T element) {
-		return getService().create(element);
+		return getRepository().saveAndFlush(element);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public @ResponseBody
 	void delete(@PathVariable PK id) {
-		getService().delete(id);
+		getRepository().delete(id);
 	}
 
-	protected abstract CrudService<T,PK> getService();
+	public abstract AbstractRepository<T, PK> getRepository();
 	
 }
