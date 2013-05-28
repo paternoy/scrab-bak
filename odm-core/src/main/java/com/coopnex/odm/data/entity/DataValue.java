@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.coopnex.scrab.data.entity.AbstractEntity;
 
@@ -26,9 +28,11 @@ public class DataValue extends AbstractEntity<Long> {
 
 	@ManyToOne
 	@JoinColumn(name = "variableId")
+//	@MapsId("variableID")
 	Variable variable;
 
 	@Column
+	@Temporal(TemporalType.TIMESTAMP)  
 	Date dateTime;
 
 	public Long getId() {
@@ -61,6 +65,12 @@ public class DataValue extends AbstractEntity<Long> {
 
 	public void setDateTime(Date dateTime) {
 		this.dateTime = dateTime;
+	}
+
+	@Override
+	public String toString() {
+		return "DataValue [id=" + id + ", value=" + value + ", variable="
+				+ variable + ", dateTime=" + dateTime + "]";
 	}
 
 }
