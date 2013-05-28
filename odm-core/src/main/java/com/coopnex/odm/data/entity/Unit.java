@@ -57,4 +57,10 @@ public class Unit extends AbstractEntity<Integer>{
 	public void setAbbreviation(String abbreviation) {
 		this.abbreviation = abbreviation;
 	}
+
+	@Override
+	public String toString() {
+		return "Unit [id=" + id + ", name=" + name + ", type=" + type
+				+ ", abbreviation=" + abbreviation + "]";
+	}
 }

@@ -63,4 +63,10 @@ public class Variable extends AbstractEntity<Long> {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	@Override
+	public String toString() {
+		return "Variable [id=" + id + ", name=" + name + ", code=" + code
+				+ ", unit=" + unit + "]";
+	}
 }
