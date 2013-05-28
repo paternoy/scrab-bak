@@ -1,0 +1,25 @@
+/* Put your CSS here */
+html,body {
+	margin: 20px;
+}
+
+#variable-list input.edit {
+	display: none; /* Hides input box*/
+}
+
+#variable-list  label {
+	min-width: 150px;
+	display: inline-block;
+}
+
+#variable-list .editing label {
+	display: none; /* Hides label text when .editing*/
+}
+
+#variable-list .editing button {
+	display: none; /* Hides label text when .editing*/
+}
+
+#variable-list .editing input.edit {
+	display: inline; /* Shows input text box when .editing*/
+}
