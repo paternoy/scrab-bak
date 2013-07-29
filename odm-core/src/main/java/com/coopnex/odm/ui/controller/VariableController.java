@@ -11,8 +11,8 @@ import com.coopnex.odm.data.entity.Variable;
 import com.coopnex.odm.service.VariableService;
 import com.coopnex.scrab.rest.controller.CrudController;
 
-@Controller
-@RequestMapping("/variables*")
+//@Controller
+//@RequestMapping("/variables*")
 public class VariableController extends CrudController<Variable, Long> {
 	
 	@Autowired

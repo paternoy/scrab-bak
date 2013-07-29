@@ -3,7 +3,7 @@ html,body {
 	margin: 20px;
 }
 
-#variable-list input.edit {
+#variable-list input.edit-field {
 	display: none; /* Hides input box*/
 }
 
@@ -20,6 +20,23 @@ html,body {
 	display: none; /* Hides label text when .editing*/
 }
 
-#variable-list .editing input.edit {
+#variable-list .editing input.edit-field {
 	display: inline; /* Shows input text box when .editing*/
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
 }

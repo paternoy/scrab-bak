@@ -69,4 +69,12 @@ public class Variable extends AbstractEntity<Long> {
 		return "Variable [id=" + id + ", name=" + name + ", code=" + code
 				+ ", unit=" + unit + "]";
 	}
+
+	public Unit getUnit() {
+		return unit;
+	}
+
+	public void setUnit(Unit unit) {
+		this.unit = unit;
+	}
 }

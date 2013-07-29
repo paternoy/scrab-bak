@@ -11,22 +11,27 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import com.coopnex.scrab.data.entity.AbstractEntity;
+import com.coopnex.scrab.rest.resource.AbstractResource;
+import com.coopnex.scrab.rest.resource.AbstractResourceAssembler;
 import com.coopnex.scrab.service.CrudService;
 
-public abstract class CrudController<T, PK extends Serializable> {
+public abstract class RestController<T extends AbstractEntity<? extends Serializable>, PK extends Serializable,R extends AbstractResource<T>> {
 
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public @ResponseBody
-	T getById(@PathVariable PK id) {
-		return getService().read(id);
+	R getById(@PathVariable PK id) {
+		T entity = getService().read(id);
+		return getResourceAssembler().toResource(entity);
 
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
 	public @ResponseBody
-	List<T> getAll() {
-		return getService().readAll();
+	List<R> getAll() {
+		List<T> entities = getService().readAll();
+		return getResourceAssembler().toResources(entities);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
@@ -49,5 +54,6 @@ public abstract class CrudController<T, PK extends Serializable> {
 	}
 
 	protected abstract CrudService<T, PK> getService();
+	protected abstract AbstractResourceAssembler<T, R> getResourceAssembler();
 
 }

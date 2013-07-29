@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.coopnex.odm.data.entity.Unit;
 import com.coopnex.odm.data.repository.UnitRepository;
 import com.coopnex.scrab.rest.controller.CrudRepositoryRestController;
-
-@Controller
-@RequestMapping("/units*")
+//
+//@Controller
+//@RequestMapping("/units*")
 public class UnitController extends CrudRepositoryRestController<Unit, Integer> {
 	
 	@Autowired
